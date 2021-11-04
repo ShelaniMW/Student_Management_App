@@ -37,7 +37,7 @@ class UpdateClassComponent extends Component {
             ClassService.updateClass(class1,this.state.id).then(res =>{
 
                 
-                toast.success('Class details Updated Successfully',{autoClose:2500});
+                toast.success('Updated Successfully',{autoClose:2500});
                     
                     
                 
@@ -61,6 +61,7 @@ class UpdateClassComponent extends Component {
         }
 
     render() {
+        const {serveType} = this.state;
         return (
             <div>
                 <div className="container" style={{marginTop: "50px"}}>
@@ -81,7 +82,7 @@ class UpdateClassComponent extends Component {
                                     </div>
                                     
 
-                                    <button className="btn btn-success" onClick={this.updateClass.bind(this)}>Save</button>
+                                    <button className="btn btn-success" onClick={this.updateClass.bind(this)}>Update</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
 

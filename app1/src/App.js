@@ -12,6 +12,7 @@ import UpdateClassComponent from './components/UpdateClassComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import AssignStudentComponent from './components/AssignStudentComponent';
+import {Link} from 'react-router-dom'
 
 
 function App() {

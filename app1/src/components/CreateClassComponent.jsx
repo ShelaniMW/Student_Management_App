@@ -63,11 +63,17 @@ class CreateClassComponent extends Component {
                                 <form>
                                     <div className="form-group">
                                         <input placeholder="Class Name" name="className" className="form-control"
-                                            value={this.state.classtName} onChange={this.changeClassNameHandler}/>
+                                            value={this.state.className} onChange={this.changeClassNameHandler}/>
                                     </div>
                                     <div className="form-group">
-                                        <input placeholder="location" name="location" className="form-control"
-                                            value={this.state.location} onChange={this.changeLocationHandler}/>
+                                            <select value={this.state.location} onChange={this.changeLocationHandler}
+                                        name="location" className="form-control" >
+                                            <option >-Location-</option>
+                                            <option >New Building</option>
+                                            <option >First Floor</option>
+                                            <option >Second Floor</option>
+                                            <option >Third Floor</option>
+                                        </select>
                                     </div>
                                     
 
