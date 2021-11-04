@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import StudentService from '../services/StudentService';
 import ClassService from '../services/ClassService';
+import { Route , withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class HeaderComponent extends Component {
@@ -13,17 +15,10 @@ class HeaderComponent extends Component {
 
         }
      }
+
     
-    navStudentList(){
-        this.props.history.push(`/students`);
-    }
-    navClassList(){
-        this.props.history.push(`/classes`);
-    }
-    navAssignClassList(){
-        this.props.history.push(`/assign-student`);
-    }
     render() {
+        const {serveType} = this.state;
         return (
             <div> 
                 <header>
@@ -33,9 +28,9 @@ class HeaderComponent extends Component {
                                 <a className="navbar-brand text-white">Student Management</a>
                                 </div>
                                         <ul className="nav navbar-nav">
-                                            <button type="button" class="btn btn-outline-light" onClick={this.navStudentList.bind(this)} >Student List</button>
-                                            <button type="button" class="btn btn-outline-light" onClick={this.navClassList.bind(this)}>Class List</button>
-                                            <button type="button" class="btn btn-outline-light" onClick={this.navAssignClassList.bind(this)}>Student-Class List</button>
+                                            <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/students">Student List</Link></button>
+                                            <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/classes">Class List</Link></button>
+                                            <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/assign-student">Student-Class List</Link></button>
                                         </ul>
                         </div>
                     </nav>

@@ -2,17 +2,25 @@ import React, { Component } from 'react';
 import { toast } from 'react-toastify';
 import StudentService from '../services/StudentService';
 
+function searchingFor(term){
+    return function(x){
+        return x.email.toLowerCase().includes(term.toLowerCase()) || !term;
+        }
+    }
+
 toast.configure()
 class ListStudentComponent extends Component {
     constructor(props){
         super(props)
         
         this.state={
-                students: []
+                students: [],
+                term:''
             }
             this.addStudent=this.addStudent.bind(this);
             this.deleteStudent = this.deleteStudent.bind(this);
             this.editStudent=this.editStudent.bind(this);
+            this.searchHandler = this.searchHandler.bind(this);
         }
 
         componentDidMount(){
@@ -27,6 +35,10 @@ class ListStudentComponent extends Component {
         editStudent(id){
             this.props.history.push(`/update-student/${id}`);
         }
+        searchHandler(event){
+            this.setState({term: event.target.value})
+        }
+
 
         deleteStudent = (id) => {
             StudentService.deleteStudent(id).then( res => {
@@ -42,11 +54,13 @@ class ListStudentComponent extends Component {
         }
 
     render() {
+        const {term,term1,students} = this.state;
         return (
             <div>
                 <h2 className="text-center" style={{marginTop: "50px"}}>Student List</h2>
                 <div className='row'style={{marginBottom: "10px"}}>
                     <button className='btn btn-primary' onClick={this.addStudent}>Add New Student</button>
+                    <form><input style={{marginLeft:"700px"}}type="text" placeholder="Searc Email........." onChange={this.searchHandler} value={term}/></form>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
@@ -62,7 +76,7 @@ class ListStudentComponent extends Component {
                         </thead>
                         <tbody>
                             {
-                                this.state.students.map(
+                                this.state.students.filter(searchingFor(this.state.term)).map(
                                     student =>
                                     <tr key={student.id}>
                                         <td>{student.studentName}</td>
