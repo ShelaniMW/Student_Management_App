@@ -13,6 +13,8 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import AssignStudentComponent from './components/AssignStudentComponent';
 import {Link} from 'react-router-dom'
+import ListAssignedStudentComponent from './components/ListAssignedStudentComponent';
+
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
                 <Route path="/add-class" component={CreateClassComponent}></Route>
                 <Route path="/update-class/:id" component={UpdateClassComponent}></Route>
                 <Route path="/assign-student" component={AssignStudentComponent}></Route>
+                <Route path="/assign-records" component={ListAssignedStudentComponent}></Route>
           
                 </Switch>
             </div>
