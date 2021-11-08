@@ -7,7 +7,7 @@ class AssignStudentService{
     getRecords(){
         return axios.get(CLASS_API_BASE_URL);
     }
-    createRecords(record){
+    createRecord(record){
         return axios.post(CLASS_API_BASE_URL, record);
     }
     deleteRecord(id){

@@ -30,7 +30,7 @@ class HeaderComponent extends Component {
                                         <ul className="nav navbar-nav">
                                             <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/students">Student List</Link></button>
                                             <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/classes">Class List</Link></button>
-                                            <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/assign-student">Student-Class List</Link></button>
+                                            <button type="button" class="btn btn-outline-light" ><Link className="link" style={{ textDecoration: 'none' }} to="/assign-records">Student-Class List</Link></button>
                                         </ul>
                         </div>
                     </nav>
