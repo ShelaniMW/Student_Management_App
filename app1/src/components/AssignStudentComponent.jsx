@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ClassService from '../services/ClassService';
 import StudentService from '../services/StudentService';
 import { toast } from 'react-toastify';
-import AssignService from '../services/AssignService';
+import AssignStudentService from '../services/AssignStudentService';
 
 class AssignStudentComponent extends Component {
     constructor(props){
@@ -12,12 +12,11 @@ class AssignStudentComponent extends Component {
         this.state={
             classes: [],
             students:[],
-            StudentName:'',
-            ClassName:''
+            className:'',
+            studentName:'',
             
             
         }
-
                   
     }
     componentDidMount(){
@@ -38,33 +37,33 @@ class AssignStudentComponent extends Component {
 
     }
     cancel(){
-        this.props.history.push('/classes');
+        this.props.history.push('/assign-records');
     }
     save=(a)=>{
         a.preventDefault();
 
-        let assign = {ClassName:this.state.ClassName,
+        let record = {ClassName:this.state.ClassName,
             StudentName:this.state.StudentName,
             };
 
                   
       
-        console.log('assign =>' + JSON.stringify(assign));
-        AssignService.createAssign(assign).then(res =>{
+        console.log('record =>' + JSON.stringify(record));
+        AssignStudentService.createRecords(record).then(res =>{
 
             
             
             toast.success('New Record Added Successfully',{autoClose:2500});
                 
             
-            this.props.history.push('/classes');});
+            this.props.history.push('/assign-records');});
         
         
     }
 
     
     render() {
-        const {serveType} = this.state;
+      
         return (
             <div>
                
@@ -90,7 +89,7 @@ class AssignStudentComponent extends Component {
                                             <option name="ClassName">{class1.className}</option>)}
                                         </select>
                                     </div> 
-                                    <button className="btn btn-success" >Save</button>
+                                    <button className="btn btn-success" onClick={this.cancel.bind(this)}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}  style={{marginLeft: "10px"}}>Cancel</button>     
                                 </form>
 
