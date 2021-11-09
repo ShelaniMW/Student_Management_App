@@ -60,7 +60,7 @@ class ListStudentComponent extends Component {
                 <h2 className="text-center" style={{marginTop: "50px"}}>Student List</h2>
                 <div className='row'style={{marginBottom: "10px"}}>
                     <button className='btn btn-primary' onClick={this.addStudent}>Add New Student</button>
-                    <form><input style={{marginLeft:"700px"}}type="text" placeholder="Searc Email........." onChange={this.searchHandler} value={term}/></form>
+                    <form><input style={{marginLeft:"700px"}}type="text" placeholder="Search Email........." onChange={this.searchHandler} value={term}/></form>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">

@@ -46,8 +46,8 @@ class ListAssignedStudentComponent extends Component {
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Class Name</th>
                                 <th>Student Name</th>
+                                <th>Class Name</th>
                                 <th></th>
                             </tr>
 
@@ -57,8 +57,8 @@ class ListAssignedStudentComponent extends Component {
                                 this.state.records.map(
                                     record =>
                                     <tr key={record.id}>
-                                        <td>{record.className}</td>
                                         <td>{record.studentName}</td>
+                                        <td>{record.className}</td>
                                         <td><button onClick = {()=> this.editRecord(record.id)} style={{marginRight:"15px"}}  className="btn btn-info">Update</button>
                                         <button  className="btn btn-danger" onClick = {()=> this.deleteRecord(record.id)}>Delete</button>
                                         </td>
