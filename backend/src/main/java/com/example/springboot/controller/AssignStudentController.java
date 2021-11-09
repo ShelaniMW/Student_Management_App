@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 import com.example.springboot.exception.ResourceNotFoundException;
@@ -64,6 +65,22 @@ public class AssignStudentController {
 					response.put("deleted", Boolean.TRUE);
 					return ResponseEntity.ok(response);
 				}
+	//update record
+	@PutMapping("/records/{id}")
+	public ResponseEntity<AssignStudent> updateRecord(@PathVariable Long id,@RequestBody AssignStudent recordDetails)
+			throws ResourceNotFoundException{
+		
+		AssignStudent s = assignStudentRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Record not exist with id : " + id));
+		s.setClassName(recordDetails.getClassName());
+		s.setStudentName(recordDetails.getStudentName());
+		
+
+
+		AssignStudent updated = assignStudentRepository.save(s);
+		return ResponseEntity.ok(updated);
+	}
+	
 	
 
 }
