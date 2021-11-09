@@ -12,8 +12,8 @@ class AssignStudentComponent extends Component {
         this.state={
             classes: [],
             students:[],
-            StudentName:'',
-            ClassName:''
+            studentName:'',
+            className:''
             
             
         }
@@ -31,11 +31,11 @@ class AssignStudentComponent extends Component {
         });
     }
     changeClassNameHandler = (event) => {
-        this.setState({ClassName:event.target.value});
+        this.setState({className:event.target.value});
 
     }
     changeStudentNameHandler = (event) => {
-        this.setState({StudentName:event.target.value});
+        this.setState({studentName:event.target.value});
 
     }
     cancel(){
@@ -44,8 +44,8 @@ class AssignStudentComponent extends Component {
     save=(a)=>{
         a.preventDefault();
 
-        let record = {ClassName:this.state.ClassName,
-            StudentName:this.state.StudentName,
+        let record = {className:this.state.className,
+            studentName:this.state.studentName,
             };
 
                   
@@ -77,7 +77,7 @@ class AssignStudentComponent extends Component {
                                 <form>
                                 <div className="form-group">
                                     <label>Student Name:</label>
-                                        <select class="form-control" value={this.state.StudentName} onChange={this.changeStudentNameHandler}> 
+                                        <select class="form-control" value={this.state.studentName} onChange={this.changeStudentNameHandler}> 
                                             <option selected></option>     
                                                 {this.state.students.map(student =>
                                             <option name="StudentName">{student.studentName}</option>)}
@@ -85,7 +85,7 @@ class AssignStudentComponent extends Component {
                                     </div>      
                                     <div className="form-group">
                                     <label>Class Name:</label>
-                                        <select class="form-control" value={this.state.ClassName} onChange={this.changeClassNameHandler} > 
+                                        <select class="form-control" value={this.state.className} onChange={this.changeClassNameHandler} > 
                                             <option selected></option>     
                                                 {this.state.classes.map(class1 =>
                                             <option name="ClassName">{class1.className}</option>)}
